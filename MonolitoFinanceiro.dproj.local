@@ -6,11 +6,14 @@
     <Transaction>2024/06/29 17:58:13.000.866,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2024/06/29 17:59:59.000.662,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2024/07/15 18:53:55.657,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/07/15 19:00:23.205,C:\monolitoFinanceiro\src\view\MonolitoFinanceiro.View.Principal.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2024/07/15 19:00:23.205,C:\monolitoFinanceiro\src\view\MonolitoFinanceiro.View.Principal.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/07/15 19:00:23.205,C:\monolitoFinanceiro\src\view\MonolitoFinanceiro.View.Principal.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2024/07/15 19:00:37.949,C:\monolitoFinanceiro\MonolitoFinanceiro.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2024/07/15 19:25:51.749,=C:\monolitoFinanceiro\Unit1.pas</Transaction>
     <Transaction>2024/07/15 19:26:40.725,C:\monolitoFinanceiro\src\view\MonolitoFinanceiro.View.CadastroPadrao.pas=C:\monolitoFinanceiro\Unit1.pas</Transaction>
     <Transaction>2024/07/15 19:26:40.725,C:\monolitoFinanceiro\src\view\MonolitoFinanceiro.View.CadastroPadrao.dfm=C:\monolitoFinanceiro\Unit1.dfm</Transaction>
+    <Transaction>2024/07/15 20:26:27.371,=C:\monolitoFinanceiro\Unit1.pas</Transaction>
+    <Transaction>2024/07/15 20:26:54.668,C:\monolitoFinanceiro\src\view\MonolitoFinanceiro.View.Splash.pas=C:\monolitoFinanceiro\Unit1.pas</Transaction>
+    <Transaction>2024/07/15 20:26:54.668,C:\monolitoFinanceiro\src\view\MonolitoFinanceiro.View.Splash.dfm=C:\monolitoFinanceiro\Unit1.dfm</Transaction>
   </Transactions>
 </BorlandProject>

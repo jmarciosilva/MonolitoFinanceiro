@@ -110,6 +110,10 @@
             <Form>frmCadastroPadrao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\view\MonolitoFinanceiro.View.Splash.pas">
+            <Form>frmSplash</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
