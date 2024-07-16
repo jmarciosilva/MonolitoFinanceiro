@@ -1,0 +1,11 @@
+inherited frmCadastroPadrao1: TfrmCadastroPadrao1
+  Caption = 'frmCadastroPadrao1'
+  ClientWidth = 988
+  TextHeight = 21
+  inherited pnlPrincipal: TCardPanel
+    Width = 988
+    inherited CardPesquisa: TCard
+      Height = 759
+    end
+  end
+end
