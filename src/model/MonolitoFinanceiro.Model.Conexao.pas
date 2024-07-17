@@ -14,7 +14,6 @@ uses
 type
   TdmConexao = class(TDataModule)
     SQLConexao: TFDConnection;
-    FDQuery1: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
 
   private
@@ -33,6 +32,8 @@ var
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses MonolitoFinanceiro.Model.Usuarios;
 
 {$R *.dfm}
 

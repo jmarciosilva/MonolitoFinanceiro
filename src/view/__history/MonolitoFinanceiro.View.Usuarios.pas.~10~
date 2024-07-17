@@ -1,0 +1,60 @@
+unit MonolitoFinanceiro.View.Usuarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, MonolitoFinanceiro.View.CadastroPadrao,
+  Data.DB, System.ImageList, Vcl.ImgList, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.WinXCtrls;
+
+type
+  TfrmUsuarios = class(TfrmCadastroPadrao)
+    DataSource1: TDataSource;
+    edtNome: TEdit;
+    edtLogin: TEdit;
+    edtSenha: TEdit;
+    ToggleSwitchStatus: TToggleSwitch;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmUsuarios: TfrmUsuarios;
+
+implementation
+
+{$R *.dfm}
+
+uses MonolitoFinanceiro.Model.Conexao, MonolitoFinanceiro.Model.Usuarios;
+
+procedure TfrmUsuarios.btnAlterarClick(Sender: TObject);
+begin
+  inherited;
+  edtNome.Text := dmUsuarios.dataSetUsuariosnome.AsString;
+  edtLogin.Text := dmUsuarios.dataSetUsuarioslogin.AsString;
+  edtSenha.Text := dmUsuarios.dataSetUsuariossenha.AsString;
+  ToggleSwitchStatus.State := tssOn;
+  if dmUsuarios.dataSetUsuariosstatus.AsString = 'B' then
+    ToggleSwitchStatus.State := tssOff;
+
+end;
+
+procedure TfrmUsuarios.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  dmUsuarios.dataSetUsuarios.Close;
+  dmUsuarios.dataSetUsuarios.CommandText :=  'Select * from usuarios';
+  dmUsuarios.dataSetUsuarios.Open;
+
+end;
+
+end.

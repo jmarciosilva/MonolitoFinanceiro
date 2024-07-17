@@ -123,6 +123,12 @@
             <Form>frmUsuarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\model\MonolitoFinanceiro.Model.Usuarios.pas">
+            <Form>dmUsuarios</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\util\MonolitoFinanceiro.Utilitarios.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

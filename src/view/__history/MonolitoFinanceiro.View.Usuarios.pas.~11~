@@ -1,0 +1,106 @@
+unit MonolitoFinanceiro.View.Usuarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, MonolitoFinanceiro.View.CadastroPadrao,
+  Data.DB, System.ImageList, Vcl.ImgList, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.WinXCtrls;
+
+type
+  TfrmUsuarios = class(TfrmCadastroPadrao)
+    DataSource1: TDataSource;
+    edtNome: TEdit;
+    edtLogin: TEdit;
+    edtSenha: TEdit;
+    ToggleSwitchStatus: TToggleSwitch;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmUsuarios: TfrmUsuarios;
+
+implementation
+
+{$R *.dfm}
+
+uses MonolitoFinanceiro.Model.Conexao, MonolitoFinanceiro.Model.Usuarios;
+
+procedure TfrmUsuarios.btnAlterarClick(Sender: TObject);
+begin
+  inherited;
+  edtNome.Text := dmUsuarios.dataSetUsuariosnome.AsString;
+  edtLogin.Text := dmUsuarios.dataSetUsuarioslogin.AsString;
+  edtSenha.Text := dmUsuarios.dataSetUsuariossenha.AsString;
+  ToggleSwitchStatus.State := tssOn;
+  if dmUsuarios.dataSetUsuariosstatus.AsString = 'B' then
+    ToggleSwitchStatus.State := tssOff;
+
+end;
+
+procedure TfrmUsuarios.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  dmUsuarios.dataSetUsuarios.Close;
+  dmUsuarios.dataSetUsuarios.CommandText :=  'Select * from usuarios';
+  dmUsuarios.dataSetUsuarios.Open;
+
+end;
+
+procedure TfrmUsuarios.btnSalvarClick(Sender: TObject);
+var
+  LStatus : String;
+begin
+  if Trim(edtNome.Text) = '' then
+  begin
+    edtNome.SetFocus;
+    Application.MessageBox('O Campo NOME não pode ser VAZIO!', 'Atenção', MB_OK + MB_ICONWARNING);
+    Abort;
+  end;
+
+  if Trim(edtLogin.Text) = '' then
+  begin
+    edtLogin.SetFocus;
+    Application.MessageBox('O Campo LOGIN não pode ser VAZIO!', 'Atenção', MB_OK + MB_ICONWARNING);
+    Abort;
+  end;
+
+  if Trim(edtSenha.Text) = '' then
+  begin
+    edtSenha.SetFocus;
+    Application.MessageBox('O Campo SENHA não pode ser VAZIO!', 'Atenção', MB_OK + MB_ICONWARNING);
+    Abort;
+  end;
+
+   LStatus := 'A';
+
+   if ToggleSwitchStatus.State = tssOff then
+    LStatus := 'B';
+
+   dmUsuarios.dataSetUsuariosnome.AsString  :=  Trim(edtNome.Text);
+   dmUsuarios.dataSetUsuarioslogin.AsString :=  Trim(edtLogin.Text);
+   dmUsuarios.dataSetUsuariossenha.AsString :=  Trim(edtSenha.Text);
+   dmUsuarios.dataSetUsuariosstatus.AsString :=  LStatus;
+
+   dmUsuarios.dataSetUsuarios.Post;
+   dmUsuarios.dataSetUsuarios.ApplyUpdates(0);
+   Application.MessageBox('Registro Alterado com SUCESSO', 'Atenção', MB_OK + MB_ICONINFORMATION);
+
+   pnlPrincipal.ActiveCard := CardPesquisa;
+
+  inherited;
+
+end;
+
+end.
