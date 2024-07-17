@@ -8,7 +8,10 @@ uses
   MonolitoFinanceiro.Model.Conexao in 'src\model\MonolitoFinanceiro.Model.Conexao.pas' {dmConexao: TDataModule},
   MonolitoFinanceiro.View.Usuarios in 'src\view\MonolitoFinanceiro.View.Usuarios.pas' {frmUsuarios},
   MonolitoFinanceiro.Model.Usuarios in 'src\model\MonolitoFinanceiro.Model.Usuarios.pas' {dmUsuarios: TDataModule},
-  MonolitoFinanceiro.Utilitarios in 'src\util\MonolitoFinanceiro.Utilitarios.pas';
+  MonolitoFinanceiro.Utilitarios in 'src\util\MonolitoFinanceiro.Utilitarios.pas',
+  MonolitoFinanceiro.View.Login in 'src\view\MonolitoFinanceiro.View.Login.pas' {frmLogin},
+  MonolitoFinanceiro.Model.Entidades.Usuario in 'src\model\Entidades\MonolitoFinanceiro.Model.Entidades.Usuario.pas',
+  MonolitoFinanceiro.Model.Sistema in 'src\model\MonolitoFinanceiro.Model.Sistema.pas' {dmSistema: TDataModule};
 
 {$R *.res}
 
@@ -16,9 +19,10 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmConexao, dmConexao);
+  Application.CreateForm(TdmUsuarios, dmUsuarios);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TfrmCadastroPadrao, frmCadastroPadrao);
   Application.CreateForm(TfrmUsuarios, frmUsuarios);
-  Application.CreateForm(TdmUsuarios, dmUsuarios);
+  Application.CreateForm(TdmSistema, dmSistema);
   Application.Run;
 end.
